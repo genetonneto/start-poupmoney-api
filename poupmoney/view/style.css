@@ -1,0 +1,12 @@
+.card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px; /* Defina uma altura mínima para o container */
+    
+}
+
+.p-budget {
+    font-size: 18px;
+    font-weight: bold;
+  }

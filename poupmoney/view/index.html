@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PoupMoney | Controle suas despesas de forma inteligente!</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+        crossorigin="anonymous"
+    />
+    <link href="styles.css" rel="stylesheet" /> <!-- Adicione um arquivo CSS para customizações -->
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-2 bg-light">
+                <div class="sidebar-header text-center">
+                    <img src="/view/img/logo.png" alt="Logo" class="img-fluid" />
+                </div>
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="#">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#">Relatório</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Conteúdo principal -->
+            <main class="col-md-10">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status" id="loading"></div>
+                </div>
+                <div class="row">
+                    <!-- Container do Budget -->
+                    <div class="col-md-6">
+                        <div class="card mt-3">
+                            <div class="card-header bg-info text-white">Receitas</div>
+                            <div class="card-body text-center" id="budget-container">
+                                <!-- Conteúdo do Budget será adicionado aqui pelo JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Container das Despesas do Mês -->
+                    <div class="col-md-12 mt-3"> <!-- Adicionei a classe "mt-3" para dar espaço entre os containers -->
+                        <div class="card">
+                            <div class="card-header bg-success text-white">Despesas do Mês</div>
+                            <div class="card-body">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Descrição</th>
+                                            <th scope="col">Tipo</th>
+                                            <th scope="col">Valor</th>
+                                            <th scope="col">Data</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="expenses"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                <div>
+            </main>
+        </div>
+    </div>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"
+    ></script>
+</body>
+
+</html>
