@@ -12,7 +12,7 @@ Este projeto tem como base as ODS, a ideia central é promover uma plataforma pa
 
 <h2> ⌨️ Desenvolvedores</h2>
 <p><a href="https://github.com/dornss">Gabriel Dornelas Guimarães</a></p>
-<p>Geneton Alves da Silva Neto</p>
+<p><a href="https://github.com/genetonneto">Geneton Alves da Silva Neto</p>
 <p>Ivinny Lima da Silva</p>
 <p>Jessica Tavares Alves</p>
 
