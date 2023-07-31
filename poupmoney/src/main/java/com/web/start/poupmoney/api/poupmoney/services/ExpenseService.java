@@ -47,20 +47,20 @@ public class ExpenseService {
     }
 
     // ALTERAR NOME PARA EXPENSE
-    @Transactional
-    public Expense update(Expense obj) {
-        Expense newObj = findById(obj.getId());
-        newObj.setDescription(obj.getDescription());
-        return this.expenseRepo.save(newObj);
-    }
+    // @Transactional
+    // public Expense update(Expense obj) {
+    //     Expense newObj = findById(obj.getId());
+    //     newObj.setDescription(obj.getDescription());
+    //     return this.expenseRepo.save(newObj);
+    // }
 
     // MANEIRA MAIS ADEQUADA DE NOMEAR UPDATE
-    // @Transactional
-    // public User update(User obj) {
-    //     User existingUser = findById(obj.getId());
-    //     BeanUtils.copyProperties(obj, existingUser, "id");
-    //     return this.userRepository.save(existingUser);
-    // }
+    @Transactional
+    public Expense update(Expense existingExpense) {
+        Expense NewExistingExpense = findById(existingExpense.getId());
+        NewExistingExpense .setDescription(existingExpense.getDescription());
+        return this.expenseRepo.save(existingExpense);
+    }
 
 
     public void delete(Long id) {
