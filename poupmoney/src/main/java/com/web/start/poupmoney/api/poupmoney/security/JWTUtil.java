@@ -1,6 +1,7 @@
 package com.web.start.poupmoney.api.poupmoney.security;
 
 import java.util.Date;
+import java.util.Objects;
 
 import javax.crypto.SecretKey;
 
@@ -45,6 +46,13 @@ public class JWTUtil {
                 return true;
         }
         return false;
+    }
+
+    public String getUsername(String token){
+        Claims claims = getClaims(token);
+        if(Objects.nonNull(claims))
+            return claims.getSubject();
+        return null;
     }
 
     private Claims getClaims(String token) {
