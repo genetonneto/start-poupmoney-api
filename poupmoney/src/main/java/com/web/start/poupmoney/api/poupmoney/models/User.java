@@ -65,10 +65,6 @@ public class User {
     @Size(groups = { CreateUser.class, UpdateUser.class }, min = 8, max = 30)
     private String password;
 
-    @Column(name = "budget", nullable = false)
-    @NotNull(groups = { CreateUser.class, UpdateUser.class })
-    private Double budget;
-
     @OneToMany(mappedBy = "user")
     @JsonProperty(access = Access.WRITE_ONLY)
     private List<Expense> expenses = new ArrayList<Expense>();
