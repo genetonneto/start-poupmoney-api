@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.web.start.poupmoney.api.poupmoney.models.User;
 import com.web.start.poupmoney.api.poupmoney.repositories.UserRepo;
-import com.web.start.poupmoney.api.poupmoney.security.UserSecurity;
+import com.web.start.poupmoney.api.poupmoney.security.UserSpringSecurity;
 
 @Service
 public class UserDetailsServiceImp implements UserDetailsService{
@@ -23,7 +23,7 @@ public class UserDetailsServiceImp implements UserDetailsService{
         User user = this.userRepo.findByUsername(username);
         if(Objects.isNull(user)) 
             throw new UsernameNotFoundException("Usuario não encontrado: " + username);
-        return new UserSecurity(user.getId(), user.getUsername(), user.getPassword(), user.getProfiles());
+        return new UserSpringSecurity(user.getId(), user.getUsername(), user.getPassword(), user.getProfiles());
     }
     
 }

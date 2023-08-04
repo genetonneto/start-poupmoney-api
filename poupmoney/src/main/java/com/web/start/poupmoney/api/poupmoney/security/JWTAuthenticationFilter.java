@@ -20,7 +20,6 @@ import com.web.start.poupmoney.api.poupmoney.exceptions.GlobalExceptionHandler;
 import com.web.start.poupmoney.api.poupmoney.models.User;
 
 
-
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter{
     
     private AuthenticationManager authenticationManager;
@@ -42,7 +41,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             Authentication authentication = this.authenticationManager.authenticate(authToken);
             return authentication;
         } catch (IOException e) {
-            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
@@ -50,8 +48,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     @Override
     protected void successfulAuthentication(HttpServletRequest request,
         HttpServletResponse response, FilterChain filterChain, Authentication authentication) throws IOException, ServletException {
-        UserSecurity userSecurity = (UserSecurity) authentication.getPrincipal();
-        String username = userSecurity.getUsername();
+        UserSpringSecurity userSpringSecurity = (UserSpringSecurity) authentication.getPrincipal();
+        String username = userSpringSecurity.getUsername();
         String token = this.jwtUtil.generationToken(username);
         response.addHeader("Authorization", "Bearer " + token);
         response.addHeader("access-control-expose-headers", "Authorization");

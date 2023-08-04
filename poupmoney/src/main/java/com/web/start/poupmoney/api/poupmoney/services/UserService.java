@@ -1,11 +1,13 @@
 package com.web.start.poupmoney.api.poupmoney.services;
 
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.web.start.poupmoney.api.poupmoney.models.User;
 import com.web.start.poupmoney.api.poupmoney.models.enums.ProfileEnum;
 import com.web.start.poupmoney.api.poupmoney.repositories.UserRepo;
+import com.web.start.poupmoney.api.poupmoney.security.UserSpringSecurity;
+import com.web.start.poupmoney.api.poupmoney.services.exceptionCustonService.AuthorizationException;
 import com.web.start.poupmoney.api.poupmoney.services.exceptionCustonService.DataException;
 import com.web.start.poupmoney.api.poupmoney.services.exceptionCustonService.ObjectNotFoundException;
 
@@ -25,10 +29,28 @@ public class UserService {
     @Autowired
     private UserRepo userRepo;
 
+    // public User findById(Long id) {
+
+    //     UserSpringSecurity userSpringSecurity = authenticated();
+    //     if(!Objects.nonNull(userSpringSecurity) || !userSpringSecurity.hasRole(ProfileEnum.ADMIN) && !id.equals(userSpringSecurity.getId()))
+    //     throw new AuthorizationException("Acesso negado!");
+
+    //     Optional<User> user = this.userRepo.findById(id);
+    //     return user.orElseThrow(() -> new ObjectNotFoundException("Usuario não encontrado! Id: " + id + ", Tipo: " + User.class.getName()));
+    // }
+
+
     public User findById(Long id) {
+        UserSpringSecurity userSpringSecurity = authenticated();
+        if (!Objects.nonNull(userSpringSecurity)
+                || !userSpringSecurity.hasRole(ProfileEnum.ADMIN) && !id.equals(userSpringSecurity.getId()))
+            throw new AuthorizationException("Acesso negado!");
+
         Optional<User> user = this.userRepo.findById(id);
-        return user.orElseThrow(() -> new ObjectNotFoundException("Usuario não encontrado! Id: " + id + ", Tipo: " + User.class.getName()));
+        return user.orElseThrow(() -> new ObjectNotFoundException(
+                "Usuário não encontrado! Id: " + id + ", Tipo: " + User.class.getName()));
     }
+
 
     @Transactional
     public User create(User obj) {
@@ -55,5 +77,14 @@ public class UserService {
             throw new DataException("Não é possível excluir pois há entidades relacionadas.");
         }
     }
+
+    public static UserSpringSecurity authenticated() {
+        try {
+            return (UserSpringSecurity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
 
 }
