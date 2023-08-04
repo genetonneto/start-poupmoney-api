@@ -20,7 +20,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.web.start.poupmoney.api.poupmoney.models.Expense;
 import com.web.start.poupmoney.api.poupmoney.services.ExpenseService;
-import com.web.start.poupmoney.api.poupmoney.services.UserService;
 
 
 @RestController
@@ -32,8 +31,6 @@ public class ExpenseController { // ALTERAR NOME PARA EXPENSE
     private ExpenseService expenseService; // ALTERAR NOME PARA EXPENSE
 
     @Autowired
-    private UserService userService ;
-
 
     @GetMapping("/{id}")
     public ResponseEntity<Expense> findById(@PathVariable Long id) { // ALTERAR NOME PARA EXPENSE
@@ -41,10 +38,9 @@ public class ExpenseController { // ALTERAR NOME PARA EXPENSE
         return ResponseEntity.ok(obj);
     }
 
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Expense>> findAllByUserId(@PathVariable Long userId) {
-        this.userService.findById(userId);
-        List<Expense> objs = this.expenseService.findAllByUserId(userId); // ALTERAR NOME PARA EXPENSE
+    @GetMapping("/user")
+    public ResponseEntity<List<Expense>> findAllByUser() {
+        List<Expense> objs = this.expenseService.findAllByUser(); // ALTERAR NOME PARA EXPENSE
         return ResponseEntity.ok().body(objs);
     }
 

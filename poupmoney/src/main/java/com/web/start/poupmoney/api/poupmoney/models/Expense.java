@@ -17,7 +17,6 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-// import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
