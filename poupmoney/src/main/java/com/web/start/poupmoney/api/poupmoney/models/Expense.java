@@ -14,9 +14,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -49,7 +51,8 @@ public class Expense {
     private String nome;
 
     @Column(name = "description", length = 255, nullable = false)
-    @NotEmpty
+    @NotBlank
+    @Size(min = 1, max = 255)
     private String description;
 
     // Table budget

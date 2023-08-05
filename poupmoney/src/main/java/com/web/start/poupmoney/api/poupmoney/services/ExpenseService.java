@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.web.start.poupmoney.api.poupmoney.models.Expense;
 import com.web.start.poupmoney.api.poupmoney.models.User;
 import com.web.start.poupmoney.api.poupmoney.models.enums.ProfileEnum;
+import com.web.start.poupmoney.api.poupmoney.models.projections.ExpenseProjection;
 import com.web.start.poupmoney.api.poupmoney.repositories.ExpenseRepo;
 import com.web.start.poupmoney.api.poupmoney.security.UserSpringSecurity;
 import com.web.start.poupmoney.api.poupmoney.services.exceptionCustonService.AuthorizationException;
@@ -37,12 +38,12 @@ public class ExpenseService {
         return expense;
     }
 
-    public List<Expense> findAllByUser() {
+    public List<ExpenseProjection> findAllByUser() {
         UserSpringSecurity userSpringSecurity = UserService.authenticated();
         if (Objects.isNull(userSpringSecurity))
             throw new AuthorizationException("Acesso negado!");
 
-        List<Expense> expenses = this.expenseRepo.findByUser_Id(userSpringSecurity.getId());
+        List<ExpenseProjection> expenses = this.expenseRepo.findByUser_Id(userSpringSecurity.getId());
         return expenses;
     }
 

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.web.start.poupmoney.api.poupmoney.models.Expense;
+import com.web.start.poupmoney.api.poupmoney.models.projections.ExpenseProjection;
 import com.web.start.poupmoney.api.poupmoney.services.ExpenseService;
 
 
@@ -30,8 +31,6 @@ public class ExpenseController { // ALTERAR NOME PARA EXPENSE
     @Autowired
     private ExpenseService expenseService; // ALTERAR NOME PARA EXPENSE
 
-    @Autowired
-
     @GetMapping("/{id}")
     public ResponseEntity<Expense> findById(@PathVariable Long id) { // ALTERAR NOME PARA EXPENSE
         Expense obj = this.expenseService.findById(id); // ALTERAR NOME PARA EXPENSE
@@ -39,8 +38,8 @@ public class ExpenseController { // ALTERAR NOME PARA EXPENSE
     }
 
     @GetMapping("/user")
-    public ResponseEntity<List<Expense>> findAllByUser() {
-        List<Expense> objs = this.expenseService.findAllByUser(); // ALTERAR NOME PARA EXPENSE
+    public ResponseEntity<List<ExpenseProjection>> findAllByUser() {
+        List<ExpenseProjection> objs = this.expenseService.findAllByUser(); // ALTERAR NOME PARA EXPENSE
         return ResponseEntity.ok().body(objs);
     }
 

@@ -18,10 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.web.start.poupmoney.api.poupmoney.models.User;
-import com.web.start.poupmoney.api.poupmoney.models.User.CreateUser;
-import com.web.start.poupmoney.api.poupmoney.models.User.UpdateUser;
+import com.web.start.poupmoney.api.poupmoney.models.dto.UserCreateDTO;
+import com.web.start.poupmoney.api.poupmoney.models.dto.UserUpdateDTO;
 import com.web.start.poupmoney.api.poupmoney.services.UserService;
-
 
 
 @RestController
@@ -40,18 +39,18 @@ public class UserController {
     }
 
     @PostMapping
-    @Validated(CreateUser.class)
-    public ResponseEntity<Void> create(@Valid @RequestBody User obj) { // Estamos criando um usuario, por isso o retorno é do tipo void/vazio
-        this.userService.create(obj);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri(); // Instancia a uri, para ela encontrar a rota | Seleciona o contexto da uri | passa o caminho pelo id 
+    public ResponseEntity<Void> create(@Valid @RequestBody UserCreateDTO obj) { // Estamos criando um usuario, por isso o retorno é do tipo void/vazio
+        User user = this.userService.fromDTO(obj);
+        User newUser = this.userService.create(user);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newUser.getId()).toUri(); // Instancia a uri, para ela encontrar a rota | Seleciona o contexto da uri | passa o caminho pelo id 
         return ResponseEntity.created(uri).build();
     }
 
     @PutMapping("/{id}")  // Atualizar dados do usuario
-    @Validated(UpdateUser.class)
-    public ResponseEntity<Void> update(@Valid @RequestBody User obj, @PathVariable Long id) {
+    public ResponseEntity<Void> update(@Valid @RequestBody UserUpdateDTO obj, @PathVariable Long id) {
         obj.setId(id);
-        this.userService.update(obj);
+        User user = this.userService.fromDTO(obj);
+        this.userService.update(user);
         return ResponseEntity.noContent().build();
     }
 

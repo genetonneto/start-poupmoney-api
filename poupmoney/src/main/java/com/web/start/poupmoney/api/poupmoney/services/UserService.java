@@ -6,6 +6,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,6 +15,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.web.start.poupmoney.api.poupmoney.models.User;
+import com.web.start.poupmoney.api.poupmoney.models.dto.UserCreateDTO;
+import com.web.start.poupmoney.api.poupmoney.models.dto.UserUpdateDTO;
 import com.web.start.poupmoney.api.poupmoney.models.enums.ProfileEnum;
 import com.web.start.poupmoney.api.poupmoney.repositories.UserRepo;
 import com.web.start.poupmoney.api.poupmoney.security.UserSpringSecurity;
@@ -85,6 +89,21 @@ public class UserService {
             return null;
         }
     }
+
+    public User fromDTO(@Valid UserCreateDTO obj) {
+        User user = new User();
+        user.setUsername(obj.getUsername());
+        user.setPassword(obj.getPassword());
+        return user;
+    }
+
+    public User fromDTO(@Valid UserUpdateDTO obj) {
+        User user = new User();
+        user.setId(obj.getId());
+        user.setPassword(obj.getPassword());
+        return user;
+    }
+
 
 
 }
