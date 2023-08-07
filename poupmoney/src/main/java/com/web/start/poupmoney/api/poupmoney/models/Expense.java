@@ -13,12 +13,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
+
+import com.web.start.poupmoney.api.poupmoney.models.enums.ExpenseType;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -46,7 +48,7 @@ public class Expense {
     @JoinColumn(name = "user_id", nullable = false, updatable = false)
     private User user;
 
-   @Column(name = "nome", length = 100, nullable = false)
+    @Column(name = "nome", length = 100, nullable = false)
     @NotEmpty
     private String nome;
 
@@ -55,19 +57,9 @@ public class Expense {
     @Size(min = 1, max = 255)
     private String description;
 
-    // Table budget
-    // @Column(name = "budget", nullable = false)
-    // @NotNull(groups = {CreateUser.class, UpdateUser.class}) 
-    // @NotEmpty(groups = {CreateUser.class, UpdateUser.class})
-    // private Double budget;
-
-
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo", length = 50, nullable = false)
-    private TipoDespesa tipo;
-
-    @Transient
-    private String tipoDescricao; // Atributo para armazenar a descrição do enum TipoDespesa
+    private ExpenseType tipo;
 
     @Column(name = "valor", nullable = false)
     @NotNull
@@ -77,24 +69,6 @@ public class Expense {
     @NotNull
     @Past
     private LocalDate dataRegistroDespesa;
-
-    public enum TipoDespesa {
-        ESSENCIAL("Essencial"),
-        EDUCACAO("Educação"),
-        OBJETIVOS_LONGO_PRAZO("Objetivos a longo prazo"),
-        GASTOS_TRIVIAIS("Gastos triviais"),
-        POUPANCA("Poupança");
-
-        private final String descricao;
-
-        TipoDespesa(String descricao) {
-            this.descricao = descricao;
-        }
-
-        public String getDescricao() {
-            return descricao;
-        }
-    }
 
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
