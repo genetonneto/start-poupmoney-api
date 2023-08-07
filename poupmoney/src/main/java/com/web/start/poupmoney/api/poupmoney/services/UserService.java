@@ -61,6 +61,7 @@ public class UserService {
         obj.setId(null);
         obj.setPassword(this.bCryptPasswordEncoder.encode(obj.getPassword()));
         obj.setProfiles(Stream.of(ProfileEnum.USER.getCode()).collect(Collectors.toSet()));
+        obj.setBudget(obj.getBudget());
         obj = this.userRepo.save(obj);
         return obj;
     }
@@ -94,6 +95,8 @@ public class UserService {
         User user = new User();
         user.setUsername(obj.getUsername());
         user.setPassword(obj.getPassword());
+        user.setBudget(obj.getBudget());
+
         return user;
     }
 
