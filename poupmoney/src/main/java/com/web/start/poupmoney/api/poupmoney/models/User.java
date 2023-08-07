@@ -38,12 +38,6 @@ import lombok.Setter;
 @EqualsAndHashCode
 public class User {
 
-    // public interface CreateUser {
-    // };
-
-    // public interface UpdateUser {
-    // };
-
     public static final String TABLE_NAME = "user";
 
     @Id
@@ -61,6 +55,9 @@ public class User {
     @NotBlank
     @Size(min = 8, max = 60)
     private String password;
+    
+    @Column(name = "budget", nullable = true)
+    private Double budget;
 
     @OneToMany(mappedBy = "user")
     @JsonProperty(access = Access.WRITE_ONLY)
