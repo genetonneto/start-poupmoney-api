@@ -37,6 +37,10 @@ h1 {
     font-size: 16px;
 }
 
+.btn-create {
+    text-decoration: none;
+}
+
 .btn:hover {
     background-color: #317a6e;
 }

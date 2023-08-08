@@ -11,7 +11,6 @@ function show(expenses) {
             <th scope="col">Descrição</th>
             <th scope="col">Tipo</th>
             <th scope="col">Valor</th>
-            <th scope="col">Data</th>
         </thead>`;
 
   for (let expense of expenses) {
@@ -22,7 +21,6 @@ function show(expenses) {
                 <td>${expense.description}</td>
                 <td>${expense.tipo}</td>
                 <td>${expense.valor}</td>
-                <td>${expense.dataRegistroDespesa}</td>
             </tr>
         `;
   }

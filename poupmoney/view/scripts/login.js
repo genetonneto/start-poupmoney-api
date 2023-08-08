@@ -21,7 +21,7 @@ async function login() {
   window.localStorage.setItem(key, token);
 
   window.setTimeout(function () {
-    window.location = "/view/loading.html";
+    window.location = "/poupmoney/view/loading.html";
   }, 2000);
 }
 
