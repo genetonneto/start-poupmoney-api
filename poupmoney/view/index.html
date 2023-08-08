@@ -1,84 +1,192 @@
+<!--Ok-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PoupMoney | Controle suas despesas de forma inteligente!</title>
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-        crossorigin="anonymous"
-    />
-    <link href="styles.css" rel="stylesheet" /> <!-- Adicione um arquivo CSS para customizações -->
-    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/png" sizes="16x16" href="imagens/LogoTitle.png">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>Início | PoupMoney</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <nav id="sidebar" class="col-md-2 bg-light">
-                <div class="sidebar-header text-center">
-                    <img src="/view/img/logo.png" alt="Logo" class="img-fluid" />
-                </div>
-                <ul class="list-unstyled components">
-                    <li>
-                        <a href="#">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="#">Relatório</a>
-                    </li>
+    <header class="header">
+        <!-- container 1 -->
+        <div class="container">
+            <nav>
+                <a href="#">
+                    <img src="imagens/logoPoupMoney.png" alt="Logo">
+                </a>
+                <ul>
+                    <a href="#">Inicio</a>
+                    <a href="sobre.html">Sobre</a>
+                    <a href="contato.html">Contato</a>
+                    <a class="btn" href="login.html">Entrar</a>
+                    <a class="btn" href="signup.html">Cadastrar-se</a>
                 </ul>
             </nav>
+            <section class="banner">
+                <div class="banner-text">
+                    <h1>Início</h1>
+                    <p>Acesse todos os recursos da nossa plataforma</p>
 
-            <!-- Conteúdo principal -->
-            <main class="col-md-10">
-                <div class="d-flex justify-content-center">
-                    <div class="spinner-border" role="status" id="loading"></div>
                 </div>
-                <div class="row">
-                    <!-- Container do Budget -->
-                    <div class="col-md-6">
-                        <div class="card mt-3">
-                            <div class="card-header bg-info text-white">Receitas</div>
-                            <div class="card-body text-center" id="budget-container">
-                                <!-- Conteúdo do Budget será adicionado aqui pelo JavaScript -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Container das Despesas do Mês -->
-                    <div class="col-md-12 mt-3"> <!-- Adicionei a classe "mt-3" para dar espaço entre os containers -->
-                        <div class="card">
-                            <div class="card-header bg-success text-white">Despesas do Mês</div>
-                            <div class="card-body">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Nome</th>
-                                            <th scope="col">Descrição</th>
-                                            <th scope="col">Tipo</th>
-                                            <th scope="col">Valor</th>
-                                            <th scope="col">Data</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="expenses"></tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                <div>
-            </main>
+            </section>
         </div>
-    </div>
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"
-    ></script>
+        <!-- end container 1 -->
+    </header>
+    <!-- faça mais -->
+    <section class="faca-mais">
+        <!-- container 2 -->
+        <div class="container">
+            <div class="faca-mais-text">
+                <h3>Faça mais com PoupMoney</h3>
+                <p>
+                    Acompanhar detalhadamente seus gastos e investimentos,
+                    e tomar decisões financeiras mais informadas e estratégicas,
+                    permitindo-lhe alcançar seus objetivos de maneira eficiente e segura.
+                </p>
+                <a class="btn" href="contato.html">Entrar em contato</a>
+            </div>
+            <div class="faca-mais-img">
+                <img src="imagens/foto4.png" alt="">
+            </div>
+        </div>
+        <!-- end container 2 -->
+    </section>
+    <!-- end faça mais -->
+    <!-- faça mais 2 -->
+    <section class="faca-mais">
+        <!-- container 3 -->
+        <div class="container">
+            <div class="faca-mais-img">
+                <img src="imagens/foto3.png" alt="">
+            </div>
+            <div class="faca-mais-text">
+                <h3>Gestão financeira nunca foi tão fácil</h3>
+                <p>
+                    Descubra como a nossa plataforma torna a gestão financeira mais
+                    simples e eficiente, permitindo que você foque no que realmente
+                    importa e alcance seus objetivos com tranquilidade.
+                </p>
+                <a class="btn" href="contato.html">Entrar em contato</a>
+            </div>
+        </div>
+        <!-- end container 3-->
+    </section>
+    <!-- end faça mais 2 -->
+    <!-- depoimentos -->
+    <section class="depoimentos">
+        <!-- container 4 -->
+        <div class="container">
+            <h3>Nossos Depoimentos</h3>
+            <p>
+                Leia o que nossos clientes falam de nós para o mundo
+            </p>
+            <!-- cards -->
+            <div class="cards">
+                <!-- cards 1-->
+                <div class="cards-item">
+                    <img src="imagens/mateus.jpg" alt="Mateus">
+                    <p class="nome-user">Mateus Lima</p>
+                    <p class="depoimento-user">
+                        A Poupmoney revolucionou minha gestão financeira! Com sua interface amigável e recursos
+                        avançados, agora consigo acompanhar meus gastos, criar orçamentos personalizados e controlar
+                        meus investimentos de forma prática e eficiente. Alcançar meus objetivos financeiros tornou-se
+                        uma realidade graças à Poupmoney!
+                    </p>
+                    <div class="estrelas">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <!-- end cards 1-->
+                <!-- cards 2-->
+                <div class="cards-item">
+                    <img src="imagens/norwal2.jpg" alt="Norwal">
+                    <p class="nome-user">Norwal Gomes</p>
+                    <p class="depoimento-user">
+                        A Poupmoney revolucionou minha gestão financeira! Com sua interface amigável e recursos
+                        avançados, agora consigo acompanhar meus gastos, criar orçamentos personalizados e controlar
+                        meus investimentos de forma prática e eficiente. Alcançar meus objetivos financeiros tornou-se
+                        uma realidade graças à Poupmoney!
+                    </p>
+                    <div class="estrelas">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <!-- end cards 2-->
+                <!-- cards 3-->
+                <div class="cards-item">
+                    <img src="imagens/Tairone.png" alt="Tairone">
+                    <p class="nome-user">Tairone Albuquerque</p>
+                    <p class="depoimento-user">
+                        A Poupmoney revolucionou minha gestão financeira! Com sua interface amigável e recursos
+                        avançados, agora consigo acompanhar meus gastos, criar orçamentos personalizados e controlar
+                        meus investimentos de forma prática e eficiente. Alcançar meus objetivos financeiros tornou-se
+                        uma realidade graças à Poupmoney!
+                    </p>
+                    <div class="estrelas">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <!-- end cards 3-->
+            </div>
+            <!-- end cards -->
+        </div>
+        <!-- end container 4 -->
+    </section>
+    <!-- end depoimentos -->
+    <!-- clientes -->
+
+
+    <!-- faça mais 3 -->
+    <section class="faca-mais">
+        <!-- container 6 -->
+        <div class="container">
+            <div class="faca-mais-text">
+                <h3>Relatórios financeiros mensais!</h3>
+                <p>
+                    Com foco na gestão cuidadosa de seus recursos financeiros, nós elaboramos relatórios mensais
+                    detalhados, proporcionando uma visão clara e organizada de suas finanças pessoais.
+                </p>
+                <a class="btn" href="contato.html">Entrar em contato</a>
+            </div>
+            <div class="faca-mais-img">
+                <img src="imagens/foto1.png" alt="Relatórios">
+            </div>
+        </div>
+        <!-- end container 6 -->
+    </section>
+    <!-- end faça mais 3 -->
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="links">
+                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/"> <i class="fa fa-instagram"></i></a>
+                <a href="https://github.com/"> <i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/"> <i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
+        <p>Desenvolvido por Alumnis</p>
+    </footer>
+    <!-- end footer -->
 </body>
 
 </html>
