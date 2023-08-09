@@ -1,6 +1,5 @@
 package com.web.start.poupmoney.api.poupmoney.models.projections;
 
-import java.time.LocalDate;
 
 import java.util.Date;
 
